@@ -22,12 +22,45 @@ Change the contents of this page depending on the current day and time.
 
 const display = document.querySelector('[data-js="display"]');
 
+var currentTime = new Date().getHours();
+var currentWeekDay = new Date().getDay();
+// currentTime = 8;
+// currentWeekDay = 6;
+var greetingMessage = "Hello";
+var dayColor = "white";
+
+console.log(
+  "Es ist der",
+  currentWeekDay,
+  ". Tag der Woche um ",
+  currentTime,
+  "Uhr!"
+);
+
 function getGreeting() {
-  // Code here
+  if (currentTime <= 5) {
+    return (greetingMessage = "Good Night");
+  }
+  if (currentTime <= 12) {
+    return (greetingMessage = "Good Morning");
+  }
+  if (currentTime <= 18) {
+    return (greetingMessage = "Good Afternoon");
+  } else {
+    return (greetingMessage = "Good Night");
+  }
 }
+console.log(getGreeting(currentTime));
 
 function getDayColor() {
-  // Code here
+  if (currentWeekDay === 1) {
+    return (dayColor = "darkgray");
+  }
+  if (currentWeekDay <= 5) {
+    return (dayColor = "lightblue");
+  } else {
+    return (dayColor = "hotpink");
+  }
 }
 
 display.textContent = getGreeting();
